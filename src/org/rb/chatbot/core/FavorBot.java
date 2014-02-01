@@ -1,12 +1,10 @@
 package org.rb.chatbot.core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class BirthdayBot {
+public class FavorBot {
 
-	public static void startBirthdayBot(String requestMessage) {
-		ArrayList<String> topics = new ArrayList<String>(Arrays.asList("help", "happy", "birthday"));
+	public static void startFavorBot(String requestMessage, ArrayList<String> topics) {
 		WebHandler webHandler = new WebHandler(ConstantTextStrings.WEBSITE_URL);
 		webHandler.startBrowser();
 		while (true) {

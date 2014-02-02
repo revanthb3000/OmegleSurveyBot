@@ -22,9 +22,11 @@ public class FavorBot {
 						break;
 					}
 				}
-				
-				webHandler.disconnect();				
-				UtilityFunctions.writeToFile(webHandler.getTranscript(),fileName);
+				if(!webHandler.hasDisconnected()){
+					webHandler.disconnect();
+				}
+				Thread.sleep(2000);
+				UtilityFunctions.writeToFile(webHandler.getTranscript(),fileName);				
 			} catch (Exception e) {
 				continue;
 			}

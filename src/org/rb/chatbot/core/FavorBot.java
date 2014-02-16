@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 public class FavorBot {
 
-	public static void startFavorBot(String requestMessage, ArrayList<String> topics) {
+	public static void startFavorBot(String requestMessage, ArrayList<String> topics) throws InterruptedException {
 		WebHandler webHandler = new WebHandler(ConstantTextStrings.WEBSITE_URL);
 		webHandler.startBrowser();
 		while (true) {
+			String fileName = "convs/" + UtilityFunctions.getCurrentTimeStamp() + ".txt";
+			webHandler.startNewChat(topics);
+			webHandler.waitForChatStart();
+
 			try {
-				String fileName = "convs/" + UtilityFunctions.getCurrentTimeStamp() + ".txt";
-				webHandler.startNewChat(topics);
-				webHandler.waitForChatStart();
 				for(String message : requestMessage.split("\\n")){
 					webHandler.sendMessage(message);
 				}
@@ -28,8 +29,8 @@ public class FavorBot {
 				Thread.sleep(2000);
 				UtilityFunctions.writeToFile(webHandler.getTranscript(),fileName);				
 			} catch (Exception e) {
-				continue;
 			}
+			
 		}
 	}
 	

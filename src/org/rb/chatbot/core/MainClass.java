@@ -22,7 +22,7 @@ public class MainClass {
 		//birthdayExample();
 	}
 	
-	public static void consoleExample(){
+	public static void consoleExample() throws InterruptedException{
 		ArrayList<String> topics = new ArrayList<String>(Arrays.asList("help", "sad", "advice"));
 		String requestMessage = "Hi ! I'm an automated bot and I'm sorry if I'm interrupting you right now but I have a small request. \n"
 				+ "A friend of mine lost someone very close to him and has been depressed for a while now. Needless to say, I failed at lifting his spirits. \n"
@@ -32,7 +32,7 @@ public class MainClass {
 		FavorBot.startFavorBot(requestMessage, topics);
 	}
 	
-	public static void birthdayExample(){
+	public static void birthdayExample() throws InterruptedException{
 		ArrayList<String> topics = new ArrayList<String>(Arrays.asList("help", "happy", "birthday"));
 		String requestMessage = "Hi ! I'm an automated bot and I'm sorry if I'm interrupting you right now but I have a small request. \n"
 				+ "I forgot to wish a good friend of mine 'Happy Birthday' and I think I might have touched a nerve. D'oh ! \n"

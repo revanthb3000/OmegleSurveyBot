@@ -1,6 +1,9 @@
 import os
-fp = open("HappyBirthday.html", "w")
-fp.write("<html><title>Happy Birthday !!</title><div><table>")
+
+name = str(raw_input("Name of the file ?"))
+
+fp = open(name + ".html", "w")
+fp.write("<html><title>"+name+"</title><div><table>")
 for fileName in os.listdir(os.getcwd()):
     if(".txt" in fileName):
         f = open(fileName, "r")
